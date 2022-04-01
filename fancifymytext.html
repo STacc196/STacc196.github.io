@@ -13,17 +13,18 @@
 
 		<!-- Your UI controls go here -->
 		<form>
-			<fieldset label="Text">
+			<fieldset>
 				<textarea type="text" rows="4" cols="30" id="text">Text Here</textarea>
 				<label for="text"></label>
 			</fieldset>
 			<br>
 			<fieldset>
-				<button onclick="bigger()">Bigger</button>
-				<input type="radio" id="FancySchmancy">
+				<button type="button" onclick="bigger()">Bigger!</button>
+				<input type="radio" id="FancySchmancy" onchange="fancySchmancy()">
 				<label for="FancySchmancy">FancySchmancy</label>
-				<input type="radio" id="BoringBetty">
+				<input type="radio" id="BoringBetty" onchange="boringBetty()">
 				<label for="BoringBetty">BoringBetty</label>
+				<button type="button" onclick="moo()">Moo</button>
 			</fieldset>
 			
 		</form>
