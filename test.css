@@ -1,0 +1,17 @@
+h1, h2, form {
+    text-align: center;
+}
+label + input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+form {
+    background-color:chartreuse;
+    margin-left: 35%;
+    margin-right: 35%;
+    font:large;
+    border: 1px solid red;
+}
+body {
+    background-color: rgb(147, 153, 158);
+}

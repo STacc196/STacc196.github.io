@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1 style="font-size: 35px; text-align: center;">Login Form</h1>
+    <article>
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="emailInput">Email</label>
+            <input name="email" id="emailInput" type="email" placeholder="Email" required>
+            <br><br>
+            <label>
+                Password
+                <input name="password" type="password" placeholder="Password" minlength="8" required>
+            </label>
+            <br>
+            <br>
+            <button type="submit">
+                Login
+            </button>
+            <input type="search" name="query" placeholder="Search Terms">
+            <br>
+            <input type="radio" value="showPassword" id="show" name="displayPassword">
+            <label for="show">Show Password</label>
+            <input type="radio" value="hidePassword" id="dontShow" name="displayPassword" checked>
+            <label for="dontShow">Hide Password</label>
+            <p>
+                <label><input name="saveLogin" type="checkbox" value="yes">Remember Me</label>
+            </p>
+        </form>
+        <p>Don't have an account? <a href="assignment2.html">Sign-up!</a></p>    
+    </article>
+    <script>
+        let form = document.querySelector("#login-form");
+        
+        form.addEventListener("submit", (ev)=>{
+            ev.preventDefault();
+
+            const formData = new FormData(form);
+            const payload = {};
+            for(const data of formData) {
+                const [value, name] = data;
+                payload[value] = name;
+                console.log(data);
+            }
+            console.log(payload);
+            alert(JSON.stringify(payload));
+
+        });
+    </script>
+</body>
+</html>

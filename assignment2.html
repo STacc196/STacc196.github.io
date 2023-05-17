@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background: #000;
+        }
+        h1 {
+            text-align: center;
+            color:rgba(212, 0, 245, 0.47);
+        }
+        h2 {
+            text-align: center;
+            color:aliceblue
+        }
+        form {
+            margin-left: 35%;
+            margin-right: 35%;
+            border: rgb(243, 231, 6);
+            border-radius: 45px;
+            background-color: aqua;
+            text-align: center;
+            padding-bottom: 45px;
+        }
+        .big {
+            font-size: 32px;
+        }
+        input {
+            margin-top: 20px;
+        }
+    </style>
+    <h1 class="big">Sign Up Form</h1>
+    <h2>Sign Up!</h2>
+    <form id="loginForm">
+        <input type="email" name="email" required placeholder="email"> <br>
+        <input name="first name" required placeHolder="first name"> <br>
+        <input name="last name" required placeholder="last name"> <br>
+        <input name="password" type="password" required placeholder="Password"> <br>
+        <input name="password2" type="password" required placeholder="Confirm Password"> <br>
+        <input name="agree" type="checkbox" id="terms-and-conditions" required>
+        <label for="terms-and-conditions">I agree to the terms and conditions.</label> <br>
+        <button type="submit">Register</button>
+        <a type="button" href="htmlPart2.html">Return</a>
+        <br><br>
+    </form>
+    <script>
+        let form = document.querySelector("#loginForm");
+        
+        form.addEventListener("submit", (ev)=>{
+            ev.preventDefault();
+
+            const formData = new FormData(form);
+            const payload = {};
+            for(const data of formData) {
+                const [name, value] = data;
+                payload[name] = value;
+            }
+            console.log(payload);
+            if(payload.password != payload.password2)
+                alert("Passwords must match!");
+            alert(JSON.stringify({
+                fName : payload["first name"],
+                lName : payload["last name"],
+                email : payload["email"],
+                password : payload["password"],
+                tosAgreement : Boolean (payload["agree"] == "on")
+            }));
+
+        });
+    </script>
+</body>
+</html>
